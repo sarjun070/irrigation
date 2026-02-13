@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Moisture Analyzer - Smart Plant Care</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script type="module" src="script.js"></script>
+    <div class="particle" style="width: 10px; height: 10px; left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="width: 8px; height: 8px; left: 20%; animation-delay: 2s;"></div>
+    <div class="particle" style="width: 12px; height: 12px; left: 30%; animation-delay: 4s;"></div>
+    <div class="particle" style="width: 6px; height: 6px; left: 40%; animation-delay: 6s;"></div>
+    <div class="particle" style="width: 10px; height: 10px; left: 50%; animation-delay: 8s;"></div>
+    <div class="particle" style="width: 8px; height: 8px; left: 60%; animation-delay: 10s;"></div>
+    <div class="particle" style="width: 12px; height: 12px; left: 70%; animation-delay: 12s;"></div>
+    <div class="particle" style="width: 10px; height: 10px; left: 80%; animation-delay: 14s;"></div>
+    <div class="particle" style="width: 8px; height: 8px; left: 90%; animation-delay: 16s;"></div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">🌱</div>
+            <h1>Soil Moisture Analyzer</h1>
+            <p>AI-powered plant care assistant • Instant moisture analysis • Smart watering recommendations</p>
+        </header>
+        <div class="main-grid">
+            <div class="upload-section">
+                <div class="glass-card">
+                    <div class="section-title">
+                        <span>📸</span> Upload Soil Photo
+                    </div>
+                    
+                    <div class="upload-zone" id="uploadZone">
+                        <div class="upload-icon">☁️</div>
+                        <div class="upload-text">Drop your image here</div>
+                        <div class="upload-hint">or click to browse • JPG, PNG • Max 15MB</div>
+                        <input type="file" id="fileInput" class="file-input" accept="image/*">
+                    </div>
+                    
+                    <div class="preview-container" id="previewContainer">
+                        <img id="previewImage" class="preview-image" alt="Soil preview">
+                        <button class="remove-image" id="removeImage">×</button>
+                    </div>
+                    
+                    <button class="btn btn-primary" id="analyzeBtn" disabled>
+                        <span>🔍</span>
+                        <span>Analyze Moisture</span>
+                    </button>
+                    
+                    <div class="tips-section">
+                        <div class="tips-title">
+                            <span>💡</span> Pro Tips
+                        </div>
+                        <ul class="tips-list">
+                            <li>Clear view of bare soil surface</li>
+                            <li>Natural daylight works best</li>
+                            <li>Keep camera parallel to soil</li>
+                            <li>Avoid shadows and glare</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="results-section">
+                <div class="glass-card">
+                    <div class="section-title">
+                        <span>📊</span> Analysis Results
+                    </div>
+                    
+                    <div class="results-placeholder" id="resultsPlaceholder">
+                        <div class="results-placeholder-icon">🔬</div>
+                        <div class="results-placeholder-text">Upload a photo to see results</div>
+                    </div>
+                    
+                    <div class="results" id="results">
+                        <div class="moisture-display">
+                            <div class="moisture-circle">
+                                <div class="moisture-ring"></div>
+                                <div class="moisture-ring-fill" id="moistureRing"></div>
+                                <div class="moisture-value" id="moistureValue">--%</div>
+                            </div>
+                            <div class="condition-badge" id="conditionBadge">--</div>
+                        </div>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">💧</div>
+                                <div class="stat-value" id="statusEmoji">--</div>
+                                <div class="stat-label">Status</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">📈</div>
+                                <div class="stat-value" id="healthScore">--</div>
+                                <div class="stat-label">Health Score</div>
+                            </div>
+                        </div>
+                        
+                        <div class="water-card">
+                            <div class="water-header">
+                                <span>💧</span> Water Recommendation
+                            </div>
+                            <div class="water-amount" id="waterAmount">-- ml</div>
+                            <div class="pot-selector">
+                                <label for="potSize">Select your pot size:</label>
+                                <select id="potSize">
+                                    <option value="10">Small • 10 cm (4")</option>
+                                    <option value="15" selected>Medium • 15 cm (6")</option>
+                                    <option value="20">Large • 20 cm (8")</option>
+                                    <option value="25">XL • 25 cm (10")</option>
+                                    <option value="30">XXL • 30 cm (12")</option>
+                                </select>
+                            </div>
+                            <div class="water-note" id="waterNote">Based on 10cm soil depth</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Features -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Color Science</h3>
+                <p>Advanced RGB analysis determines moisture levels by examining soil darkness and saturation patterns</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Instant Results</h3>
+                <p>Get accurate moisture readings and personalized watering advice in under 2 seconds</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Privacy First</h3>
+                <p>All processing happens in your browser. No data uploaded, no tracking, 100% private</p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🌍 Made for plant lovers worldwide • Open source • Works offline</p>
+        </footer>
+    </div>
+    
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <span class="toast-icon" id="toastIcon">✅</span>
+        <span class="toast-message" id="toastMessage"></span>
+    </div>
+</body>
+</html>
