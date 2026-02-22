@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Soil Moisture Analyzer - Smart Plant Care</title>
+    <meta name="description"
+        content="AI-powered plant care assistant with instant soil moisture analysis and smart watering recommendations">
+
+     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <script type="module" src="script.js"></script>
     <div class="particle" style="width: 10px; height: 10px; left: 10%; animation-delay: 0s;"></div>
@@ -18,40 +28,39 @@
     <div class="particle" style="width: 10px; height: 10px; left: 80%; animation-delay: 14s;"></div>
     <div class="particle" style="width: 8px; height: 8px; left: 90%; animation-delay: 16s;"></div>
 
+     
     <div class="container">
         <header class="header">
             <div class="logo">🌱</div>
             <h1>Soil Moisture Analyzer</h1>
             <p>AI-powered plant care assistant • Instant moisture analysis • Smart watering recommendations</p>
         </header>
+
         <div class="main-grid">
-            <div class="upload-section">
+             
+            <section class="upload-section">
                 <div class="glass-card">
-                    <div class="section-title">
-                        <span>📸</span> Upload Soil Photo
-                    </div>
-                    
-                    <div class="upload-zone" id="uploadZone">
+                    <h2 class="section-title"><span>📸</span> Upload Soil Photo</h2>
+
+                    <div class="upload-zone" id="uploadZone" role="button" tabindex="0" aria-label="Upload soil image">
                         <div class="upload-icon">☁️</div>
                         <div class="upload-text">Drop your image here</div>
                         <div class="upload-hint">or click to browse • JPG, PNG • Max 15MB</div>
-                        <input type="file" id="fileInput" class="file-input" accept="image/*">
+                        <input type="file" id="fileInput" class="file-input" accept="image/*" aria-hidden="true">
                     </div>
-                    
+
                     <div class="preview-container" id="previewContainer">
                         <img id="previewImage" class="preview-image" alt="Soil preview">
-                        <button class="remove-image" id="removeImage">×</button>
+                        <button class="remove-image" id="removeImage" aria-label="Remove image">×</button>
                     </div>
-                    
-                    <button class="btn btn-primary" id="analyzeBtn" disabled>
+
+                    <button class="btn btn-primary" id="analyzeBtn" disabled aria-live="polite">
                         <span>🔍</span>
                         <span>Analyze Moisture</span>
                     </button>
-                    
+
                     <div class="tips-section">
-                        <div class="tips-title">
-                            <span>💡</span> Pro Tips
-                        </div>
+                        <h3 class="tips-title"><span>💡</span> Pro Tips</h3>
                         <ul class="tips-list">
                             <li>Clear view of bare soil surface</li>
                             <li>Natural daylight works best</li>
@@ -60,19 +69,20 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div class="results-section">
+            </section>
+
+             
+            <section class="results-section">
                 <div class="glass-card">
-                    <div class="section-title">
-                        <span>📊</span> Analysis Results
-                    </div>
-                    
+                    <h2 class="section-title"><span>📊</span> Analysis Results</h2>
+
                     <div class="results-placeholder" id="resultsPlaceholder">
                         <div class="results-placeholder-icon">🔬</div>
                         <div class="results-placeholder-text">Upload a photo to see results</div>
                     </div>
-                    
+
                     <div class="results" id="results">
+                         
                         <div class="moisture-display">
                             <div class="moisture-circle">
                                 <div class="moisture-ring"></div>
@@ -81,7 +91,8 @@
                             </div>
                             <div class="condition-badge" id="conditionBadge">--</div>
                         </div>
-                        
+
+                         
                         <div class="stats-grid">
                             <div class="stat-card">
                                 <div class="stat-icon">💧</div>
@@ -94,15 +105,15 @@
                                 <div class="stat-label">Health Score</div>
                             </div>
                         </div>
-                        
+
+                         
                         <div class="water-card">
-                            <div class="water-header">
-                                <span>💧</span> Water Recommendation
-                            </div>
+                            <h3 class="water-header"><span>💧</span> Water Recommendation</h3>
                             <div class="water-amount" id="waterAmount">-- ml</div>
+
                             <div class="pot-selector">
                                 <label for="potSize">Select your pot size:</label>
-                                <select id="potSize">
+                                <select id="potSize" aria-label="Pot diameter in centimeters">
                                     <option value="10">Small • 10 cm (4")</option>
                                     <option value="15" selected>Medium • 15 cm (6")</option>
                                     <option value="20">Large • 20 cm (8")</option>
@@ -110,42 +121,74 @@
                                     <option value="30">XXL • 30 cm (12")</option>
                                 </select>
                             </div>
+
                             <div class="water-note" id="waterNote">Based on 10cm soil depth</div>
+                        </div>
+
+                         
+                        <div class="plant-card" id="plantCard" style="display:none;">
+                            <h3 class="water-header"><span>🌱</span> Recommended Plants for This Soil</h3>
+                            <div class="plant-grid" id="plantList" role="list"></div>
+                            <div class="water-note">Click on any plant to see detailed care information</div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
-        
-        <!-- Features -->
+
+         
         <div class="features-grid">
-            <div class="feature-card">
+            <article class="feature-card">
                 <div class="feature-icon">🎨</div>
                 <h3>Color Science</h3>
-                <p>Advanced RGB analysis determines moisture levels by examining soil darkness and saturation patterns</p>
-            </div>
-            <div class="feature-card">
+                <p>Advanced RGB analysis determines moisture levels by examining soil darkness and saturation patterns
+                </p>
+            </article>
+            <article class="feature-card">
                 <div class="feature-icon">⚡</div>
                 <h3>Instant Results</h3>
                 <p>Get accurate moisture readings and personalized watering advice in under 2 seconds</p>
-            </div>
-            <div class="feature-card">
+            </article>
+            <article class="feature-card">
                 <div class="feature-icon">🔒</div>
                 <h3>Privacy First</h3>
                 <p>All processing happens in your browser. No data uploaded, no tracking, 100% private</p>
-            </div>
+            </article>
         </div>
-        
-        <!-- Footer -->
+
         <footer class="footer">
             <p>🌍 Made for plant lovers worldwide • Open source • Works offline</p>
         </footer>
     </div>
-    
-    <!-- Toast -->
-    <div class="toast" id="toast">
+
+     
+    <div class="toast" id="toast" role="alert" aria-live="assertive">
         <span class="toast-icon" id="toastIcon">✅</span>
         <span class="toast-message" id="toastMessage"></span>
+    </div>
+
+     
+    <div class="plant-modal" id="plantModal" role="dialog" aria-modal="true" aria-labelledby="modalPlantName">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">×</button>
+            <span class="modal-plant-icon" id="modalPlantIcon" aria-hidden="true">🌱</span>
+            <h2 class="modal-plant-name" id="modalPlantName">Plant Name</h2>
+
+            <div class="modal-details">
+                <div class="modal-detail-item">
+                    <div class="modal-detail-label">💧 Water Needs</div>
+                    <div class="modal-detail-value" id="modalPlantWater">--</div>
+                </div>
+                <div class="modal-detail-item">
+                    <div class="modal-detail-label">☀️ Sunlight</div>
+                    <div class="modal-detail-value" id="modalPlantSun">--</div>
+                </div>
+                <div class="modal-detail-item">
+                    <div class="modal-detail-label">📝 Care Tips</div>
+                    <div class="modal-detail-value" id="modalPlantCare">--</div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
