@@ -923,8 +923,8 @@
 .v1:focus {
     background-color: black;
     color: lime;
-    width 25%;
-    height 35%;
+    width: 25%;
+    height: 35%;
     border: lime solid 3px;
 }
 .v2{
@@ -943,8 +943,8 @@
 .v2:focus {
     background-color: black;
     color: red;
-    width 25%;
-    height 35%;
+    width: 25%;
+    height: 35%;
     border: red solid 3px;
 }
   @media (max-width: 1024px) {
