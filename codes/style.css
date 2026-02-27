@@ -639,6 +639,8 @@
     padding: 16px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
+    width: 100%;
+    height: 50%;
   }
   .tips-section {
     background: rgba(255, 255, 255, 0.1);
@@ -906,7 +908,45 @@
   .status-dot.wet {
     background: #3b82f6;
   }
-  
+  .v1{
+    width: 10%;
+    height: 20%;
+    border: solid black 0px;
+    border-radius: 8%;
+    background-color: lime;
+    color: black;
+    border: black solid 1.5px;
+    transition: all 1s ease;
+}
+
+.v1:hover,
+.v1:focus {
+    background-color: black;
+    color: lime;
+    width 25%;
+    height 35%;
+    border: lime solid 3px;
+}
+.v2{
+    margin-left: 20px;
+    width: 10%;
+    height: 20%;
+    border: solid black 0px;
+    border-radius: 8%;
+    background-color: red;
+    color: black;
+    border: black solid 1.5px;
+    transition: all 1s ease;
+}
+
+.v2:hover,
+.v2:focus {
+    background-color: black;
+    color: red;
+    width 25%;
+    height 35%;
+    border: red solid 3px;
+}
   @media (max-width: 1024px) {
     .main-grid {
       grid-template-columns: 1fr;

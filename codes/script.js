@@ -1107,8 +1107,7 @@ function updateWaterRecommendation() {
     const deficit = Math.max(0, targetMoisture - moisture);
     const waterMl = Math.round((deficit * surfaceArea * 0.65) / 100);
     waterAmount.textContent = waterMl > 0 ? waterMl + ' ml' : 'None needed';
-    if (moisture < 30) waterNote.textContent = '🚨 Critical: Water immediately and thoroughly until drainage appears';
-    else if (moisture < 50) waterNote.textContent = '💧 Water needed: Apply slowly and evenly across the surface';
+    if (moisture < 50) waterNote.innerHTML = '<h1>CONTROL MOTOR</h1><button class="v1" type="button">ON</button><button class="v2" type="button">OFF</button>';
     else if (moisture < 65) waterNote.textContent = getIcon('check') + ' Perfect moisture level: Your plant is happy!';
     else waterNote.textContent = '⏳ Too moist: Wait 3-5 days before next watering';
 }
